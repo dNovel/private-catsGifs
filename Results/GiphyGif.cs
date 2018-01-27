@@ -1,10 +1,10 @@
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace catGifs.Models
+namespace catGifs.Results
 {
     [DataContract]
-    public class GiphyRandomImage
+    public class GiphyGif
     {
         [DataMember(Name = "type")]
         public string Type { get; set; }
@@ -18,8 +18,8 @@ namespace catGifs.Models
         [DataMember(Name = "url")]
         public string Url { get; set; }
 
-        [DataMember(Name = "image_url")]
-        public string ImageUrl { get; set; }
+        [DataMember(Name = "bitly_gif_url")]
+        public string BitlyGifUrl { get; set; }
 
         [DataMember(Name = "bitly_url")]
         public string BitlyUrl { get; set; }

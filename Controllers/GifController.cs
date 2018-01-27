@@ -31,8 +31,8 @@ namespace catGif.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get([FromRoute] string[] tags)
+        [HttpGet("{tags}")]
+        public async Task<IActionResult> Get([FromRoute] string tags)
         {
             var result = await this.ImgService.GetRandomImage(tags);
             return Ok(result);

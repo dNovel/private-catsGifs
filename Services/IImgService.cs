@@ -7,6 +7,6 @@ namespace catGifs.Services
     {
         Task<Image> GetRandomImage();
 
-        Task<Image> GetRandomImage(string[] tags);
+        Task<Image> GetRandomImage(string tags);
     }
 }

@@ -35,19 +35,22 @@ namespace catGifs
             services.AddTransient<IImgService, GiphyService>();
 
             // Configure swagger
-            services.AddSwaggerGen(gen =>
+            if (this.HostingEnvironment.IsDevelopment())
             {
-                gen.SwaggerDoc("v0.1", new Info { Title = this.Configuration.GetSection("appSettings")["apiName"], Version = "v0.1" });
-            });
+                services.AddSwaggerGen(gen =>
+                {
+                    gen.SwaggerDoc("v0.1", new Info { Title = this.Configuration.GetSection("appSettings")["apiName"], Version = "v0.1" });
+                });
+            }
 
             services.AddApiVersioning();
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (this.HostingEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
 
